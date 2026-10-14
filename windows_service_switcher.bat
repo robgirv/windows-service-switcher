@@ -2,7 +2,7 @@
 
 @echo off
 
-:: Service names
+:: Service names (configuration)
 set "service_one=MariaDB"
 set "service_two=MySQL80"
 
@@ -18,7 +18,7 @@ if %errorLevel% neq 0 (
     exit /b
 )
 
-echo Checking database services...
+echo Checking services...
 echo.
 
 :: Check if service one is running
