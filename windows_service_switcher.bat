@@ -8,13 +8,11 @@ set "service_two=MySQL80"
 
 :: Check if script has required privileges
 net session >nul 2>&1
-if %errorLevel% neq 0 (
-    echo ====================================================
-    echo ERROR: Missing required privileges.
-    echo ====================================================
-    echo Script requires administrator privileges to handle system services.
-    echo.
-    pause
+if %errorLevel% == 0 (
+    echo Success: Administrative permissions confirmed.
+) else (
+    echo Requesting administrative privileges...
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
     exit /b
 )
 
